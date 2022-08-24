@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
+@font-face {
+    font-family: 'Wedges';
+    src: url(../fonts/Wedges.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+section {
+    width: 100%;
+    height: auto;
+}
+
+
+/* AJUSTES DA IMAGEM DE FUNDO DA TELA */
+.imagem-fundo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.imagem-fundo img {
+    /* top: -100px; */
+    position: absolute;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    opacity: 80%;
+}
+
+/* TITULO DE PERGUNTA PRINCIPAL */
+p {
+    position: absolute;
+    left: 32%;
+    top: 10%;
+    font-family: Wedges;
+    font-size: 30px;
+    color: #fff;
+    -webkit-text-stroke: #000 1.3px;
+    margin-top: 10px;
+}
+
+/* CONTAS DE MATEMATICA À SEREM RESOLVIDAS */
+
+#pergunta-container {
+    position: absolute;
+    left: 36%;
+    top: 25%;
+}
+
+#pergunta {
+    font-family: Wedges;
+    font-size: 130px;
+    color: #fff;
+    -webkit-text-stroke: rgb(0, 0, 0) 7px;
+    margin: 0px 20px;
+}
+
+.respostas-grid {
+    position: absolute;
+    top: 70%;
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.bto {
+    font-family: Wedges;
+    font-size: 20px;
+    color: #fff;
+    padding: 1px 40px;
+    margin: 30px;
+    border-radius: 7px;
+    border-bottom: #3DB7DE solid 5.5px;
+    box-shadow: 0px 0px 0px 3px #fff;
+    background: linear-gradient(45deg, #79E4FF 50%, #5ad3fc 50%);
+    cursor: pointer;
+}
+
+.bto:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    transition-duration: .4s;
+}
+
+/* CONF. DO BOTAO QUANDO FOR CLICADO NA RESPOSTA CORRETA*/
+.bto.correto {
+    border-bottom: #59CD46 solid 5.5px;
+    background: linear-gradient(45deg, #72F45D 50%, #62E94C 50%);
+}
+
+
+/* CONF. DO BOTAO QUANDO FOR CLICADO NA RESPOSTA ERRADA */
+.bto.incorreto {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+
+
+
+/* AVANÇAR PARA O PRÓXIMO NÍVEL */
+.proximo-botao {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    padding: 100px;
+    font-family: Wedges;
+    letter-spacing: 3px;
+    color: #dfb003;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+
+
+.start-botao {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    padding: 10px;
+    font-family: Wedges;
+    letter-spacing: 3px;
+    color: #dfb003;
+    border-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+/* BOTAO DE VOLTAR PARA A TELA INICIAL */
+.voltar {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    padding: 6px 10px;
+    border-radius: 50%;
+    background-color: #FFEE57;
+    border-bottom: #FFC90C solid 3px;
+    box-shadow: 0px 0px 0px 4px #fff;
+    cursor: pointer;
+}
+
+.voltar i {
+    color: white;
+    font-size: 30px;
+}
+
+.voltar:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition-duration: .4s;
+}
