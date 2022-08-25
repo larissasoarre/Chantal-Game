@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/matematica.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/matematica.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/84b7e13fbc.js" crossorigin="anonymous"></script>
-    <title>Matemática</title>
+    <title>Quiz App</title>
 </head>
 
 <body>
@@ -14,34 +16,51 @@
         <img src="img/matematica-background.png" alt="">
     </section>
 
-    <section>
-        <p>Qual é a resposta correta?</p>
+    <div class="container">
+        <div id="question-container" class="hide">
+            <div id="question">Pergunta</div>
 
-        <div id="pergunta-container" class="hide">
-            <div id="pergunta" class="hide">
-                3 + 1
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
             </div>
         </div>
 
-        <div id="respostas" class="respostas-grid">
-            <div class="bto">5</div>
-            <div class="bto">3</div>
-            <div class="bto">2</div>
+        <div class="controls">
+            <div id="start-btn" class="start-btn btn">Começar</div>
+            <div id="pop-up" class="hide">
+                <div class="back-cover"></div>
+
+                <div class="pop-up-elements">
+                    <img src="img/pop-up.png" alt="">
+                    <h2 id="pop-up-title">Muito bem!</h2>
+                    <div class="pop-up-buttons">
+                        <a href="index.html"><div class="home-btn btn">Inicio</div></a>
+                        <div id="next-button" class="next-btn btn">Proximo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="restart" class="restart hidden">
+                <div class="back-cover"></div>
+                <img src="img/pop-up.png" alt="">
+                <h2 id="restart-title">Muito bem!</h2>
+                <div class="restart-button">
+                    <p id="restart-p">Você concluiu todos os níveis</p>
+                    <div id="restart-button" class="btn">Reiniciar</div>
+                </div>
+            </div>
         </div>
-
-        <div id="proximo-botao" class="proximo-botao hide">Proximo</div>
-    </section>
-
-    <div id="start-botao" class="start-botao hide">Proximo</div>
+    </div>
 
     <!-- ICONE PARA VOLTAR A TELA DE SELEÇÃO DE JOGOS -->
 
     <section>
-        <a href="index.html">
+        <a href="selecao-de-jogos.html">
             <div class="voltar"><i class="fa-solid fa-arrow-left"></i></div>
         </a>
     </section>
-
 
     <script src="js/matematica.js"></script>
 </body>

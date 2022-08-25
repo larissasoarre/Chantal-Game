@@ -9,21 +9,20 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Wedges;
 }
 
 body {
+    width: 100vw;
     height: 100vh;
     background-color: #fff;
-    display: flex;
-    flex-direction: column;
     position: relative;
 }
 
-section {
-    width: 100%;
-    height: auto;
+a {
+    text-decoration: none;
 }
-
 
 /* AJUSTES DA IMAGEM DE FUNDO DA TELA */
 .imagem-fundo {
@@ -42,126 +41,202 @@ section {
     opacity: 80%;
 }
 
-/* TITULO DE PERGUNTA PRINCIPAL */
-p {
-    position: absolute;
-    left: 32%;
-    top: 10%;
-    font-family: Wedges;
-    font-size: 30px;
-    color: #fff;
-    -webkit-text-stroke: #000 1.3px;
-    margin-top: 10px;
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* CONTAS DE MATEMATICA À SEREM RESOLVIDAS */
-
-#pergunta-container {
+#question-container {
     position: absolute;
-    left: 36%;
+    width: 100%;
+    height: 100%;
+}
+
+#question {
+    position: absolute;
+    left: 34%;
     top: 25%;
-}
-
-#pergunta {
-    font-family: Wedges;
     font-size: 130px;
     color: #fff;
     -webkit-text-stroke: rgb(0, 0, 0) 7px;
     margin: 0px 20px;
 }
 
-.respostas-grid {
+.btn-grid {
     position: absolute;
-    top: 70%;
     display: flex;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    justify-content: center;
+    top: 65%;
+    left: 26%;
 }
 
-.bto {
-    font-family: Wedges;
+.btn {
+    width: fit-content;
     font-size: 20px;
     color: #fff;
-    padding: 1px 40px;
+    padding: 10px 60px;
     margin: 30px;
     border-radius: 7px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: #3DB7DE solid 5.5px;
     box-shadow: 0px 0px 0px 3px #fff;
+    -webkit-text-stroke: #000 1.3px;
     background: linear-gradient(45deg, #79E4FF 50%, #5ad3fc 50%);
     cursor: pointer;
 }
 
-.bto:hover {
-    cursor: pointer;
+.btn:hover {
     transform: scale(1.03);
     transition-duration: .4s;
 }
 
-/* CONF. DO BOTAO QUANDO FOR CLICADO NA RESPOSTA CORRETA*/
-.bto.correto {
+.btn.correct {
     border-bottom: #59CD46 solid 5.5px;
     background: linear-gradient(45deg, #72F45D 50%, #62E94C 50%);
 }
 
-
-/* CONF. DO BOTAO QUANDO FOR CLICADO NA RESPOSTA ERRADA */
-.bto.incorreto {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
-  
-  @keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-    
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
-    }
-  
-    30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-  
-    40%, 60% {
-      transform: translate3d(4px, 0, 0);
-    }
-  }
-
-
-
-
-/* AVANÇAR PARA O PRÓXIMO NÍVEL */
-.proximo-botao {
-    display: none;
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    padding: 100px;
-    font-family: Wedges;
-    letter-spacing: 3px;
-    color: #dfb003;
-    border-radius: 20px;
-    background-color: #fff;
+.btn.wrong {
+    border-bottom: #be2626 solid 5.5px;
+    background: linear-gradient(45deg, #ff4242 50%, #ff2b2b 50%);
 }
 
 
+.controls {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.start-botao {
+.hide {
+    display: none;
+}
+
+/* POP UP PROXIMO NIVEL */
+#pop-up {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* background-color: #000; */
+}
+
+.back-cover {
     position: absolute;
-    top: 5%;
-    right: 5%;
-    padding: 10px;
-    font-family: Wedges;
-    letter-spacing: 3px;
-    color: #dfb003;
-    border-radius: 20px;
-    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    opacity: 70%;
+
+}
+
+.pop-up-elements {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#pop-up-title {
+    position: absolute;
+    top: 18%;
+    font-size: 27px;
+    color: #fff;
+    -webkit-text-stroke: .3px #000;
+}
+
+#pop-up img {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+}
+
+.pop-up-buttons {
+    position: absolute;
+    display: flex;
+    bottom: 15%;
+}
+
+.next-btn, .home-btn {
+    /* position: absolute; */
+    font-size: 15px;
+    padding: 7px 20px;
+    -webkit-text-stroke: .8px #000;
+    box-shadow: 0px 0px 0px 3px rgb(237, 237, 237);
+}
+
+.home-btn {
+    padding: 7px 32px;
+}
+
+
+/* ------------------------ */
+.restart.hidden {
+    display: none;
+}
+
+.restart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.restart img {
+    position: relative;
+    max-width: 400px;
+}
+
+.restart-button {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    bottom: 10%;
+}
+
+#restart-p {
+    height: 20px;
+    align-items: flex-end;
+    color: #000;
+    -webkit-text-stroke: .3px #fff;
+}
+
+#restart-title {
+    position: absolute;
+    top: 18%;
+    font-size: 27px;
+    color: #fff;
+    -webkit-text-stroke: .3px #000;
+}
+
+#restart-button {
+    font-size: 15px;
+    padding: 7px 20px;
+    margin: 20px 0px 45px;
+    -webkit-text-stroke: .8px #000;
+    box-shadow: 0px 0px 0px 3px rgb(237, 237, 237);
+    background: linear-gradient(45deg, #ffb65d 50%, #ffa536 50%);
     cursor: pointer;
+    border-bottom: #dc8316 solid 5.5px;
+}
+
+.back-cover {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    opacity: 70%;
 }
 
 
@@ -186,5 +261,5 @@ p {
 .voltar:hover {
     cursor: pointer;
     transform: scale(1.05);
-    transition-duration: .4s;
+    transition-duration: 1s;
 }
