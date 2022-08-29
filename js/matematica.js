@@ -13,6 +13,10 @@ nextButton.addEventListener('click', () => {
   setNextQuestion()
 })
 
+window.onload = function() {
+  nextButton.classList.add('hide');
+}
+
 function startGame() {
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
