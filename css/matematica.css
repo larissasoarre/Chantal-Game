@@ -120,7 +120,7 @@ a {
 
 /* POP UP PROXIMO NIVEL */
 #pop-up {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100vh;
     /* background-color: #000; */
@@ -152,7 +152,7 @@ a {
     -webkit-text-stroke: .3px #000;
 }
 
-#pop-up img {
+.pop-up img {
     position: relative;
     width: 80%;
     max-width: 400px;

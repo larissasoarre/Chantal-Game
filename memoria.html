@@ -45,9 +45,16 @@
 
     <!-- POP-UP PARA REINICIAR O JOGO -->
 
-    <div class="pop-up">
-        <h2>Muito Bem</h2>
-        <button id="reiniciar">Proximo</button>
+    <div id="pop-up" class="pop-up">
+        <div class="back-cover"></div>
+        <div class="pop-up-elements">
+            <img src="img/pop-up.png" alt="">
+            <h2 id="pop-up-title">Muito bem!</h2>
+            <div class="pop-up-buttons">
+                <a href="index.html"><div class="home-btn btn">Inicio</div></a>
+                <div id="next-button" class="next-btn btn" onclick="window.location.reload()">Proximo</div>
+            </div>
+        </div>
     </div>
 
     <!-- ICONE PARA VOLTAR A TELA DE SELEÇÃO DE JOGOS -->

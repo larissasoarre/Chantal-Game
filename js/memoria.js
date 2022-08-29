@@ -1,6 +1,5 @@
 const cartas = document.querySelectorAll('.memoria-carta');
 const qtdElementos = document.querySelectorAll('.memoria-carta').length; // variavel com quantidade de elementos da section de cartas
-const popUp = document.querySelectorAll('.pop-up');
 
 var contadorCartas = 0; //vai contar quantas cartas foram viradas 
 
@@ -44,10 +43,9 @@ function checarPar() {
     // Caso todas as cartas tenham viradas, gerar pop-up
     setTimeout(() => {
         if (contadorCartas == qtdElementos) {
-            alert("Funciona");
-            popUp.classList.add('display'); //nao funciona
+            document.getElementById("pop-up").classList.add("add");
         }
-    }, 500);
+    }, 400);
 }
 
 function desabilitarCarta() {
