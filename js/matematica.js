@@ -1,36 +1,39 @@
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('pop-up')
-const questionContainerElement = document.getElementById('question-container')
+const botaoInicial = document.getElementById('start-btn')
+const popUp = document.getElementById('pop-up')
+const perguntaContainer = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
-const restartButton = document.getElementById('restart')
+const respostaBotao = document.getElementById('answer-buttons')
+const reiniciarBotao = document.getElementById('restart')
 
-let shuffledQuestions, currentQuestionIndex
+let perguntasEmbaralhadas, perguntaAtual
 
-startButton.addEventListener('click', startGame)
-nextButton.addEventListener('click', () => {
-  currentQuestionIndex++
-  setNextQuestion()
+//Botão que abrirá a tela do jogo e as perguntas aleatórias
+botaoInicial.addEventListener('click', comecarJogo)
+popUp.addEventListener('click', () => {
+  perguntaAtual++
+  definirPergunta()
 })
 
 window.onload = function() {
-  nextButton.classList.add('hide');
+  popUp.classList.add('hide');
 }
 
-function startGame() {
-  startButton.classList.add('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
-  questionContainerElement.classList.remove('hide')
-  setNextQuestion()
+//Função que iniciará o jogo
+function comecarJogo() {
+  botaoInicial.classList.add('hide')
+  perguntasEmbaralhadas = perguntas.sort(() => Math.random() - .5)
+  perguntaAtual = 0
+  perguntaContainer.classList.remove('hide')
+  definirPergunta()
 }
 
-function setNextQuestion() {
-  resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
+function definirPergunta() {
+  redefinirStatus()
+  mostrarPergunta(perguntasEmbaralhadas[perguntaAtual])
 }
 
-function showQuestion(question) {
+//Função responsável por criar a pergunta do nível
+function mostrarPergunta(question) {
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
@@ -39,39 +42,39 @@ function showQuestion(question) {
     if (answer.correct) {
       button.dataset.correct = answer.correct
     }
-    button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
+    button.addEventListener('click', selecionarResposta)
+    respostaBotao.appendChild(button)
   })
 }
 
-function resetState() {
+function redefinirStatus() {
   clearStatusClass(document.body)
-  nextButton.classList.add('hide')
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  popUp.classList.add('hide')
+  while (respostaBotao.firstChild) {
+    respostaBotao.removeChild(respostaBotao.firstChild)
   }
 }
 
-function selectAnswer(e) {
+//Seleção da reposta correta
+function selecionarResposta(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
+  Array.from(respostaBotao.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
+  if (perguntasEmbaralhadas.length > perguntaAtual + 1) {
+    popUp.classList.remove('hide')
   } else {
-    restartButton.addEventListener('click', startGame)
-    // startButton.innerText = 'Restart'
-    // startButton.classList.remove('hide')
-    restartButton.classList.remove('hidden')
-    restartButton.addEventListener('click', function() {
-        restartButton.classList.add('hidden')
+    reiniciarBotao.addEventListener('click', comecarJogo)
+    reiniciarBotao.classList.remove('hidden')
+    reiniciarBotao.addEventListener('click', function() {
+      reiniciarBotao.classList.add('hidden')
     })
   }
 }
 
+//Adição de estilo para os botões
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
@@ -86,7 +89,8 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
-const questions = [
+//Níveis do minijogo
+const perguntas = [
   {
     question: '2 + 2',
     answers: [

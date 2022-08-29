@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/memoria.css">
     <script src="https://kit.fontawesome.com/84b7e13fbc.js" crossorigin="anonymous"></script>
     <title>Memória</title>
 </head>
-<body>    
-    <div class="memoria-bkg"> 
+
+<body>
+
+    <!-- IMAGEM DE FUNDO DO JOGO -->
+    <div class="memoria-bkg">
         <img src="img/iStock-1329990369.jpg" alt="">
     </div>
 
+    <!-- IMAGEM DAS CARTAS CONTIDAS NO JOGO -->
     <section class="jogo-memoria">
         <div class="memoria-carta" data-framework="brocolis">
             <img class="lado-frontal" src="img/brocolis.PNG" alt="Brocolis">
@@ -44,21 +49,21 @@
     </section>
 
     <!-- POP-UP PARA REINICIAR O JOGO -->
-
     <div id="pop-up" class="pop-up">
         <div class="back-cover"></div>
         <div class="pop-up-elements">
             <img src="img/pop-up.png" alt="">
             <h2 id="pop-up-title">Muito bem!</h2>
             <div class="pop-up-buttons">
-                <a href="index.html"><div class="home-btn btn">Inicio</div></a>
+                <a href="index.html">
+                    <div class="home-btn btn">Inicio</div>
+                </a>
                 <div id="next-button" class="next-btn btn" onclick="window.location.reload()">Proximo</div>
             </div>
         </div>
     </div>
 
     <!-- ICONE PARA VOLTAR A TELA DE SELEÇÃO DE JOGOS -->
-
     <section>
         <a href="selecao-de-jogos.html">
             <div class="voltar"><i class="fa-solid fa-arrow-left"></i></div>
@@ -66,19 +71,7 @@
     </section>
 
 
-    <!-- <section id="loader" class="loader-container">
-        <div class="wrapper">
-            <div class="circle" id="circle1"></div>
-            <div class="circle" id="circle2"></div>
-            <div class="circle" id="circle3"></div>
-            <div class="shadow"></div>
-            <div class="shadow"></div>
-            <div class="shadow"></div>
-            <span>Carregando</span>
-        </div>
-    </section> -->
-
-
     <script src="js/memoria.js"></script>
 </body>
+
 </html>

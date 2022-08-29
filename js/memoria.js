@@ -8,6 +8,7 @@ let clicouCarta = false;
 let bloquearClique = false; // Impedir que o usuario clique em uma terceira carta enquanto as duas primeiras estiverem girando
 let primeiraCarta, segundaCarta;
 
+//Função que faz as cartas girarem
 function girarCarta() {
     if (bloquearClique) return;
     if (this === primeiraCarta) return;
@@ -29,6 +30,7 @@ function girarCarta() {
     checarPar();
 }
 
+//Checar se as cartas viradas são as mesmas
 function checarPar() {
     let cartasCombinam = primeiraCarta.dataset.framework === segundaCarta.dataset.framework;
 
@@ -45,9 +47,10 @@ function checarPar() {
         if (contadorCartas == qtdElementos) {
             document.getElementById("pop-up").classList.add("add");
         }
-    }, 400);
+    }, 600);
 }
 
+//Impossibilitar o uso das cartas do jogo após terem seus pares encontrados
 function desabilitarCarta() {
     // Quando as cartas combinarem
     primeiraCarta.removeEventListener('click', girarCarta);
@@ -56,6 +59,7 @@ function desabilitarCarta() {
     reiniciarTela();
 }
 
+//Virar as cartas para posicção inicial caso não combinem
 function virarCartas() {
     bloquearClique = true;
 
@@ -73,6 +77,7 @@ function reiniciarTela() {
     [primeiraCarta, segundaCarta] = [null, null];
 }
 
+//Função que faz um embaralhe aleatório das cartas do jogo
 (function embaralharCartas() {
     cartas.forEach(carta => {
         let randomPos = Math.floor(Math.random() * 5);
@@ -85,13 +90,4 @@ function somarCartas(contadorCartas) {
     return contadorCartas += 2;
 }
 
-
 cartas.forEach(carta => carta.addEventListener('click', girarCarta));
-
-
-// PRELOADER DA PAGINA 
-// const loader = document.getElementById("loader");
-
-// window.addEventListener("load", function() {
-//     loader.style.display = "none";
-// });

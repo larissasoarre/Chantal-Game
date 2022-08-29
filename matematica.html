@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="css/matematica.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/84b7e13fbc.js" crossorigin="anonymous"></script>
-    <title>Quiz App</title>
+    <title>Matemática</title>
 </head>
 
 <body>
@@ -16,19 +16,24 @@
         <img src="img/matematica-background.png" alt="">
     </section>
 
+    <!-- CONTAINER DAS PERGUNTAS -->
     <div class="container">
         <div id="question-container" class="hide">
             <div id="question">Pergunta</div>
 
             <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button>
-                <button class="btn">Answer 3</button>
+                <button class="btn">Resposta 1</button>
+                <button class="btn">Resposta 2</button>
+                <button class="btn">Resposta 3</button>
             </div>
         </div>
 
+        <!-- CONTROLES DO JOGO -->
         <div class="controls">
+            <!-- botao de iniciar -->
             <div id="start-btn" class="start-btn btn">Começar</div>
+
+            <!-- pop-up de próximo nivel -->
             <div id="pop-up" class="pop-up">
                 <div class="back-cover"></div>
                 <div class="pop-up-elements">
@@ -41,6 +46,7 @@
                 </div>
             </div>
 
+            <!-- pop-up de reiniciar o jogo -->
             <div id="restart" class="restart hidden">
                 <div class="back-cover"></div>
                 <img src="img/pop-up.png" alt="">
@@ -53,8 +59,8 @@
         </div>
     </div>
 
-    <!-- ICONE PARA VOLTAR A TELA DE SELEÇÃO DE JOGOS -->
 
+    <!-- ICONE PARA VOLTAR A TELA DE SELEÇÃO DE JOGOS -->
     <section>
         <a href="selecao-de-jogos.html">
             <div class="voltar"><i class="fa-solid fa-arrow-left"></i></div>
